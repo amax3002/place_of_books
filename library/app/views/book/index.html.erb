@@ -1,0 +1,9 @@
+<h1>Welcome to my Library</h1>
+
+<a href="/books/new">New Book</a>
+<% @books.each do |book| %>
+    <h2><%= book.name %></h2>
+    <p>
+      <%= book.description %>
+    </p>
+<% end %>
