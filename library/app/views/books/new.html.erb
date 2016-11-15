@@ -1,11 +1,21 @@
-<h1>Adding New Book</h1>
-<form action="/books" method="post">
-  <label for="name">Name</label>
-  <input type="text" name="book[name]" value="">
-  <label for="isbn">Isbn</label>
-  <input type="text" name="book[isbn]" value="">
-  <label for="description">Description</label>
-  <input type="text" name="book[description]" value="">
-  <label for="name">name</label>
-  <input type="submit" name="name" value="Save">
-</form>
+<h1>New Book Input</h1>
+
+<% @book.errors.full_messages.each do |error| %>
+  <%= error %>
+<% end %>
+
+
+<%= form_tag books_path do %>
+  <%= label_tag "book[name]", "Name" %>
+  <%= text_field_tag "book[name]", @book.name %>
+
+
+  <%= label_tag "book[isbn]", "ISBN" %>
+  <%= text_field_tag "book[isbn]", @book.isbn%>
+
+
+  <%= label_tag "book[description]", "Description" %>
+  <%= text_field_tag "book[description]", @book.description %>
+
+  <%= submit_tag %>
+<% end %>
