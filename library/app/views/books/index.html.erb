@@ -1,17 +1,13 @@
 <h1>Welcome to my Library</h1>
 
+<a href="/books">Book List</a>
 <a href="/books/new">New Book</a>
+
 <% @books.each do |book| %>
   <p>
 
   </p>
   <p>--------------------------------------------------------------</p>
-  <h2><%= book.name %></h2>
-  <p>
-    <%= book.isbn %>
-  </p>
-  <p>
-    <%= book.description %>
-  </p>
+  <a href="/books/<%= book.id %>"><%= book.name %></a>
 
 <% end %>

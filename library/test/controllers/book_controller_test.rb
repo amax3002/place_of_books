@@ -17,4 +17,10 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal Book.last.name, "Rescue Party"
   end
+
+  test "can get specific book" do
+    post "/books/#{Book.last}"
+    assert last_response.ok?
+    assert_equal "The Stand", JSON.parse(last_response.body)["name"]
+  end
 end

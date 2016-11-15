@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'books', controller: :books, action: :index
   get 'books/new', controller: :books, action: :new
   post 'books', controller: :books, action: :create
+  get 'books/:id', controller: :books, action: :detail
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
