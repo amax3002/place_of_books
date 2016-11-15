@@ -1,17 +1,10 @@
-<h2>Book Detail for: <span><%= @book.name %><span></h2>
+<ul>
+  <% @book.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
 
-<a href="/books">Book List</a>
-<a href="/books/new">New Book</a>
-
-  <p>
-
-  </p>
-  <p>--------------------------------------------------------------</p>
-  <p>
-    <span>ISBN: </span>
-    <%= @book.isbn %>
-  </p>
-  <p>
-    <span>Description: </span>
-    <%= @book.description %>
-  </p>
+<h1>ht</h1>
+<%= form_tag detail_path, method: "patch" do %>
+  <%= render 'form' %>
+<% end %>

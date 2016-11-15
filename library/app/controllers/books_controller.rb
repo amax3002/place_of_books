@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to "/books"
+      redirect_to "/"
     else
       render :new
     end
@@ -24,5 +24,24 @@ class BooksController < ApplicationController
 
   def detail
     @book = Book.find(params["id"])
+  end
+
+  # show form to edit an existing book # edit
+  def edit
+    @book = Book.find(params["id"])
+    render :edit
+  end
+
+  # update a book based upon an id # update
+  def update
+    @book = Book.find(params["id"])
+    @book.update(book_params)
+    redirect_to "/"
+  end
+
+  def delete
+    @book = Book.find(params["id"])
+    @book.destroy
+    redirect_to "/"
   end
 end

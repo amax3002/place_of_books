@@ -1,8 +1,7 @@
 <h2>Book Detail for: <span><%= @book.name %><span></h2>
 
-<a href="/books">Book List</a>
+<a href="/">Book List</a>
 <a href="/books/new">New Book</a>
-
   <p>
 
   </p>
@@ -15,3 +14,15 @@
     <span>Description: </span>
     <%= @book.description %>
   </p>
+
+<!-- NEED to use form tag instead of "a"
+<%= form_tag detail_path, method: "patch" do %>
+  <%= render 'form' %>
+<% end %> -->
+
+  <a class='btn btn-default btn-xs' href="/books/<%= @book.id %>/edit">Edit</a>
+
+  <form action="/books/<%= @book.id %>" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <input class='btn btn-danger btn-xs' type="submit" value="Delete">
+  </form>
