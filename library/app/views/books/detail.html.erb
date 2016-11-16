@@ -15,14 +15,10 @@
     <%= @book.description %>
   </p>
 
-<!-- NEED to use form tag instead of "a"
-<%= form_tag detail_path, method: "patch" do %>
-  <%= render 'form' %>
-<% end %> -->
+  <%= form_tag edit_option_path, method: "get" do %>
+  <%= submit_tag "Edit", class: 'btn btn-default btn-xs' %>
+  <% end %>
 
-  <a class='btn btn-default btn-xs' href="/books/<%= @book.id %>/edit">Edit</a>
-
-  <form action="/books/<%= @book.id %>" method="POST">
-          <input type="hidden" name="_method" value="delete">
-          <input class='btn btn-danger btn-xs' type="submit" value="Delete">
-  </form>
+<%= form_tag delete_book_path, method: "delete" do %>
+<%= submit_tag "Delete", class: 'btn btn-default btn-xs' %>
+<% end %>
