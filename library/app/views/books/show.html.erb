@@ -1,0 +1,19 @@
+
+    <h2>Book Detail for: <span><%= @book.name %></span></h2>
+
+      <%= link_to "Book List", books_path %>
+      <%= link_to "New Book", new_book_path %>
+      <p>
+
+      </p>
+      <p>--------------------------------------------------------------</p>
+      <p>
+
+    <p> ISBN: <span><%= @book.isbn %></span>
+    </p>
+
+    <p> Description: <span><%= @book.description %></span>
+    </p>
+
+  <%= link_to "Edit Book", edit_book_path(@book.id) %>
+  <%= link_to "Delete Book", book_path(@book.id), method: :delete %>

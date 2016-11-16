@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to "/"
+      redirect_to books_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     params.require(:book).permit(:name, :isbn, :description)
   end
 
-  def detail
+  def show
     @book = Book.find(params["id"])
   end
 
@@ -36,12 +36,12 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params["id"])
     @book.update(book_params)
-    redirect_to "/"
+    redirect_to books_path
   end
 
-  def delete
+  def destroy
     @book = Book.find(params["id"])
     @book.destroy
-    redirect_to "/"
+    redirect_to books_path
   end
 end
