@@ -5,6 +5,9 @@
 </ul>
 
 <h1>Edit Information</h1>
+
+<%= link_to "Edit Book", edit_book_path(book.id) %>
+
 <%= form_tag detail_path, method: "patch" do %>
   <%= render 'form' %>
 <% end %>

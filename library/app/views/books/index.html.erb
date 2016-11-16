@@ -1,13 +1,13 @@
 <h1>Welcome to my Library</h1>
 
-<a href="/">Book List</a>
-<a href="/books/new">New Book</a>
+<%= link_to "Book List", books_path %>
+<%= link_to "New Book", new_book_path %>
 
 <% @books.each do |book| %>
   <p>
 
   </p>
   <p>--------------------------------------------------------------</p>
-  <a href="/books/<%= book.id %>"><%= book.name %></a>
+  <%= link_to book.name, book_path(book.id) %>
 
 <% end %>

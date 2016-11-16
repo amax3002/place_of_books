@@ -1,12 +1,19 @@
 
+  <% @book.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
 
-  <%= label_tag "book[name]", "Name" %>
-  <%= text_field_tag "book[name]", @book.name %>
+  <%= form_for @book do |f| %>
 
-  <%= label_tag "book[isbn]", "ISBN" %>
-  <%= text_field_tag "book[isbn]", @book.isbn%>
+    <%= f.label :name %>
+    <%= f.text_field :name,  class: 'form-control' %>
 
-  <%= label_tag "book[description]", "Description" %>
-  <%= text_field_tag "book[description]", @book.description %>
+    <%= f.label :isbn %>
+    <%= f.text_field :isbn,  class: 'form-control' %>
 
-  <%= submit_tag %>
+    <%= f.label :description %>
+    <%= f.text_field :description,  class: 'form-control' %>
+
+    <%= f.submit class: "btn btn-primary"%>
+
+  <% end %>
