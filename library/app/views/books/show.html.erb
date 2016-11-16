@@ -3,6 +3,7 @@
 
       <%= link_to "Book List", books_path %>
       <%= link_to "New Book", new_book_path %>
+      <%= link_to "Reservation List", reservations_path %>
       <p>
 
       </p>
@@ -13,6 +14,9 @@
     </p>
 
     <p> Description: <span><%= @book.description %></span>
+    </p>
+
+    <p> Reservation_ID: <span><%= @book.reservation_id %></span>
     </p>
 
   <%= link_to "Edit Book", edit_book_path(@book.id) %>

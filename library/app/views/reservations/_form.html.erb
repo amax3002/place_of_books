@@ -1,0 +1,22 @@
+
+  <% @reservation.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+
+  <%= form_for @reservation do |f| %>
+
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name,  class: 'form-control' %>
+
+    <%= f.label :book_ID %>
+    <%= f.text_field :book_id,  class: 'form-control' %>
+
+    <%= f.label :due_date %>
+    <%= f.date_field :due_date,  class: 'form-control' %>
+
+    <%= f.label :return_date %>
+    <%= f.date_field :return_date,  class: 'form-control' %>
+
+    <%= f.submit class: "btn btn-primary"%>
+
+  <% end %>

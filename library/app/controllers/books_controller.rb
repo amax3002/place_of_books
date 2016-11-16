@@ -44,4 +44,21 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
+
+  def reservations
+
+  end
+end
+
+----
+
+def create
+  post "/reservations" do
+    @reservation = Reservation.new(params["reservation"])
+    if @reservation.save
+      redirect "/books/#{@reservation.book_id}"
+    else
+      erb :"reservations/new.html", layout: :"layout/application.html"
+    end
+  end
 end
