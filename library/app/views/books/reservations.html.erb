@@ -1,0 +1,29 @@
+
+      <%= link_to "Book List", books_path %>
+      <%= link_to "New Book", new_book_path %>
+      <%= link_to "Reservation List", reservations_path %>
+
+      <% @reservations.each do |reservation| %>
+
+      <p>
+
+      </p>
+      <p>----------------------------------------------------------------------</p>
+      <p>
+
+    <p> User Name: <span><%= reservation.user_name %></span>
+    </p>
+
+    <p> Book ID: <span><%= reservation.book_id %></span>
+    </p>
+
+    <p> Due Date: <span><%= reservation.due_date %></span>
+    </p>
+
+    <p> Return Date: <span><%= reservation.return_date %></span>
+    </p>
+
+    <p> Is it Check-Out: <span><%= reservation.checked_out %></span>
+    </p>
+
+    <% end %>

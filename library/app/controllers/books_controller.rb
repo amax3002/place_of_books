@@ -8,6 +8,23 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def new_reservation
+    @book = Book.find(params["id"])
+    @reservation = @book.reservations.build()
+    render :new_reservation
+  end
+
+  def create_reservation
+    @book = Book.find(params["id"])
+    @reservation = @book.reservations.build()
+
+    if @reservation.save
+      redirect_to reservations_path
+    else
+      render :new
+    end
+  end
+
   def create
     @book = Book.new(book_params)
 
@@ -20,6 +37,10 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:name, :isbn, :description)
+  end
+
+  def reservation_params
+    params.require(:reservation).permit(:user_name, :book_id, :due_date)
   end
 
   def show
@@ -46,19 +67,6 @@ class BooksController < ApplicationController
   end
 
   def reservations
-
-  end
-end
-
-----
-
-def create
-  post "/reservations" do
-    @reservation = Reservation.new(params["reservation"])
-    if @reservation.save
-      redirect "/books/#{@reservation.book_id}"
-    else
-      erb :"reservations/new.html", layout: :"layout/application.html"
-    end
+    @reservations = Reservation.where(book_id: Book.find(params["id"]))
   end
 end

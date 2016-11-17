@@ -1,20 +1,24 @@
-<h1>Welcome to my Library</h1>
+<h1>Welcome to the Library</h1>
 
 <%= link_to "Book List", books_path %>
-<%= link_to "New Book", new_book_path %>
-<%= link_to "Reservation List", reservations_path %>
+<%= link_to "Add New Book", new_book_path %>
+<%= link_to "Complete Reservation List", reservations_path %>
 
 <% @books.each do |book| %>
   <p>
 
   </p>
-  <p>--------------------------------------------------------------</p>
+  <p>----------------------------------------------------------------------</p>
 
   <h4>
   <%= link_to book.name, book_path(book.id) %>
   </h4>
 
   <p>
-    <%= link_to "Create Reservation", new_reservation_path(book.id) %>
+    <%= link_to "Create Reservation", reservations_new_book_path(book.id) %>
+  </p>
+
+  <p>
+    <%= link_to "Show Reservation History", reservations_book_path(book.id) %>
   </p>
 <% end %>

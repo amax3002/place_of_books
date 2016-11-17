@@ -7,17 +7,7 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
   end
-
-  def create
-    @reservation = Reservation.new(reservation_params)
-
-    if @reservation.save
-      redirect_to reservations_path
-    else
-      render :new
-    end
-  end
-
+  
   def reservation_params
     params.require(:reservation).permit(:user_name, :book_id, :due_date)
   end
@@ -43,5 +33,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params["id"])
     @reservation.destroy
     redirect_to reservations_path
+  end
+
+  def return
+
   end
 end
